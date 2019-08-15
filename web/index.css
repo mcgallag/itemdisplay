@@ -1,0 +1,132 @@
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+div#item-template {
+  visibility: collapse;
+}
+
+div.item {
+  margin: 0 auto;
+  width: 325px;
+  background-color: #333333;
+  border: 1px solid #b49d7a;
+  padding: 0.75em;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 3px 3px 6px #463650;
+  opacity: 0;
+  /* animation-delay: 0ms;
+  animation-duration: 50000ms;
+  animation-fill-mode: forwards;
+  animation-play-state: paused; */
+}
+
+div.item div.header {
+  text-align: center;
+  font-size: 26px;
+  color: #8BE9DA;
+}
+
+div.item div.quote {
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  color: #BD93D6;
+}
+
+div.item ul {
+  color: #F8D8A9;
+}
+
+ul.effects {
+  margin: 0.5em 0;
+  font-size: 14px;
+}
+ul.effects li {
+  margin: 0.5em 0;
+}
+
+ul.footer {
+  list-style-type: none;
+  margin: 0.5em 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}
+
+ul.footer li {
+  /* margin: 0.25em 0 0.25em -1.5em; */
+  margin-left: -1.25em;
+  line-height: 1.5em;
+}
+
+div.item hr {
+  color: #63a89d;
+  margin: 0.75em 0.7em;
+}
+
+@keyframes fadeInAndOut {
+  0% {
+    opacity: 0.0;
+  }
+  10% {
+    opacity: 1.0;
+  }
+  90% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.0;
+  }
+
+  to {
+    opacity: 1.0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1.0;
+  }
+
+  to {
+    opacity: 0.0;
+  }
+}
+
+div.gauge-holder {
+  border: 1px solid #27e900;
+  width: 325px;
+  margin: 0 auto;
+}
+div.gauge-header {
+  color: #27e900;
+  font-family: monospace;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #27e900;
+}
+div#tinted-meter {
+  background-image: linear-gradient(30deg, #1d5213, #27e900);
+  width: 100%;
+  height: 55px;
+  margin: 4px;
+  transition: width 2s linear 0s;
+}
+div.gauge-text {
+  color: #27e900;
+  font-family: monospace;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #27e900;
+}
