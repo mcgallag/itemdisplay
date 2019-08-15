@@ -12,7 +12,6 @@ SCREEN_HEIGHT = 46
 FONT = "dejavu16x16_gs_tc.png"
 TK = Tk()
 
-
 def readFromFile():
     fp = open("item_aob.txt")
     lines = fp.readlines()
@@ -20,7 +19,8 @@ def readFromFile():
     return lines
 
 
-# DisplayByteWindow(root_console, AoB.bytes[status["userY"] * MAX_BYTE_WIDTH + status["userX"]])
+# DisplayByteWindow(root_console,
+#									  AoB.bytes[status["userY"] * MAX_BYTE_WIDTH + status["userX"]])
 def DisplayByteWindow(console, byteObj):
     cursorY = 2
     cursorX = MAX_BYTE_COLUMN+1
@@ -56,17 +56,20 @@ def main():
     with tcod.console_init_root(SCREEN_WIDTH, SCREEN_HEIGHT,
                                 renderer=tcod.RENDERER_SDL2,
                                 order="F", vsync=True) as root_console:
-        while True:
+        running = True
+        while running:
             root_console.clear()
             AoB.display(root_console, 1, 1, status)
             DisplayByteWindow(root_console, AoB.bytes[status["userY"] * MAX_BYTE_WIDTH + status["userX"]])
             tcod.console_flush()
             for event in tcod.event.wait():
                 if event.type == "QUIT":
-                    raise SystemExit()
+                    # raise SystemExit()
+                    running = False
                 if event.type == "KEYDOWN":
                     if event.sym == tcod.event.K_ESCAPE:
-                        raise SystemExit("USER-INITIATED TERMINATION")
+                        # raise SystemExit("USER-INITIATED TERMINATION")
+                        running = False
                     elif event.sym == tcod.event.K_LEFT and status["userX"] >= 0:
                         if status["userX"] == 0 and status["userY"] > 0:
                             status["userX"] = MAX_BYTE_WIDTH-1
